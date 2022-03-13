@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./components/Home";
+import PdfView from "./components/PdfView";
 
-function App() {
+const App = () => {
+  const HomeWrapper = () => {
+    return <Home />;
+  };
+
+  const PdfViewWrapper = () => {
+    return <PdfView />;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={HomeWrapper} />
+          <Route exact path="/pdf" component={PdfViewWrapper} />
+        </Switch>
+      </Router>
+    </React.Fragment>
   );
-}
+};
 
 export default App;
