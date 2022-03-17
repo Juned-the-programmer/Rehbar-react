@@ -5,12 +5,14 @@ import Home from "./components/Home";
 import PdfView from "./components/PdfView";
 
 const App = () => {
+  const [pdf,setPdf] = useState(null);
+
   const HomeWrapper = () => {
-    return <Home />;
+    return <Home setPdf={setPdf} />;
   };
 
   const PdfViewWrapper = () => {
-    return <PdfView />;
+    return <PdfView pdf={pdf}/>;
   };
 
   return (

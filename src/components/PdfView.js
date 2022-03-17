@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import HTMLFlipBook from "react-pageflip";
 import { pdfjs, Document, Page as ReactPdfPage } from "react-pdf";
 import PDF from "../assets/DreamsInIslam.pdf";
+import PDF1 from "../assets/1.pdf";
+import PDF2 from "../assets/2.pdf";
+import PDF3 from "../assets/3.pdf";
+import PDF4 from "../assets/4.pdf";
+import PDF5 from "../assets/5.pdf";
+import PDF6 from "../assets/6.pdf";
+import PDF7 from "../assets/7.pdf";
+import PDF8 from "../assets/8.pdf";
 import useWindowDimensions from "./GetView";
 
-const PdfView = (props) => {
+const PdfView = ({pdf}) => {
   // condition for select pdf
   const [numPages, setNumPages] = useState(null);
   const { height, width } = useWindowDimensions();
@@ -39,7 +47,7 @@ const PdfView = (props) => {
   return (
     <React.Fragment>
       <Document
-        file={PDF}
+        file={pdf}
         onLoadSuccess={onDocumentLoadSuccess}
         loading={loadingFlag}
         onLoadError={(error) =>
