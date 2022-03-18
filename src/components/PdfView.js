@@ -11,6 +11,7 @@ const PdfView = ({ pdf, setBackIcon }) => {
   const [pageWidth, setPageWidth] = useState(Number(width));
   const [pageHeight, setPageHeight] = useState(Number(height - 90));
   const book = useRef();
+  const [showBtn, setBtnShow] = useState(false);
 
   useEffect(() => {
     setPageWidth(Number(width));
@@ -36,6 +37,7 @@ const PdfView = ({ pdf, setBackIcon }) => {
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
+    setBtnShow(true);
   }
 
   const arr = [];
@@ -44,7 +46,19 @@ const PdfView = ({ pdf, setBackIcon }) => {
   }
 
   const loadingFlag = () => {
-    return <h3 className="text-center text-muted mt-5">Loading...</h3>;
+    return (
+      <div
+        style={{
+          width: `${pageWidth}px`,
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "200px",
+        }}
+      >
+        <h3 className="text-muted">Loading...</h3>
+      </div>
+    );
   };
 
   useEffect(() => {
@@ -106,42 +120,44 @@ const PdfView = ({ pdf, setBackIcon }) => {
                 </HTMLFlipBook>
               </Document>
             </TransformComponent>
-            <div>
-              <Button
-                color="light"
-                style={{ width: `${btnWidth}px` }}
-                onClick={(e) => {
-                  resetTransform();
-                  prev();
-                }}
-              >
-                <i className="fa-solid fa-arrow-left"></i>
-              </Button>
-              <Button
-                color="light"
-                style={{ width: `${btnWidth}px` }}
-                onClick={(e) => zoomIn()}
-              >
-                <i className="fa fa-thin fa-magnifying-glass-plus"></i>
-              </Button>
-              <Button
-                color="light"
-                style={{ width: `${btnWidth}px` }}
-                onClick={(e) => zoomOut()}
-              >
-                <i className="fa fa-thin fa-magnifying-glass-minus"></i>
-              </Button>
-              <Button
-                color="light"
-                style={{ width: `${btnWidth}px` }}
-                onClick={(e) => {
-                  resetTransform();
-                  next();
-                }}
-              >
-                <i className="fa-solid fa-arrow-right"></i>
-              </Button>
-            </div>
+            {showBtn && (
+              <div>
+                <Button
+                  color="light"
+                  style={{ width: `${btnWidth}px` }}
+                  onClick={(e) => {
+                    resetTransform();
+                    prev();
+                  }}
+                >
+                  <i className="fa-solid fa-arrow-left"></i>
+                </Button>
+                <Button
+                  color="light"
+                  style={{ width: `${btnWidth}px` }}
+                  onClick={(e) => zoomIn()}
+                >
+                  <i className="fa fa-thin fa-magnifying-glass-plus"></i>
+                </Button>
+                <Button
+                  color="light"
+                  style={{ width: `${btnWidth}px` }}
+                  onClick={(e) => zoomOut()}
+                >
+                  <i className="fa fa-thin fa-magnifying-glass-minus"></i>
+                </Button>
+                <Button
+                  color="light"
+                  style={{ width: `${btnWidth}px` }}
+                  onClick={(e) => {
+                    resetTransform();
+                    next();
+                  }}
+                >
+                  <i className="fa-solid fa-arrow-right"></i>
+                </Button>
+              </div>
+            )}
           </React.Fragment>
         )}
       </TransformWrapper>
