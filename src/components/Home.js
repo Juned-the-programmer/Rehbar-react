@@ -3,7 +3,7 @@ import { Col, Container, Row } from "reactstrap";
 import PIC from "../assets/Vol-1.jpg";
 import DEEP from "../assets/Deep_Learning.png";
 import { useHistory } from "react-router-dom";
-import AD from "../assets/ad logo.png";
+import ADLOGO from "../assets/ad logo.png";
 import PDF from "../assets/Vol-1 feb 2022.pdf";
 import PDF1 from "../assets/1.pdf";
 import PDF2 from "../assets/2.pdf";
@@ -14,28 +14,27 @@ import PDF6 from "../assets/6.pdf";
 import PDF7 from "../assets/7.pdf";
 import PDF8 from "../assets/8.pdf";
 import PDF9 from "../assets/9.pdf";
-import PDF10 from "../assets/10.pdf";
 
-const Home = ({ setPdf }) => {
-  const [load, setLoad] = useState(true);
+const Home = ({ setPdf, setBackIcon, AD, setAD }) => {
   const history = useHistory();
 
   useEffect(() => {
-    if (load === true) {
+    setBackIcon(false);
+    if (AD === true) {
       setTimeout(() => {
-        setLoad(false);
+        setAD(false);
       }, 2000);
     }
   });
 
   return (
     <React.Fragment>
-      {load === false ? (
+      {AD === false ? (
         <React.Fragment>
           <div className="back_img"></div>
-          <Container>
+          <Container className="mt-2">
             <Row>
-              <Col md="6" sm="6" xs="6" className="mt-3">
+              <Col md="3" sm="6" xs="6" className="mt-3">
                 <img
                   src={PIC}
                   name="PIC_1"
@@ -46,7 +45,7 @@ const Home = ({ setPdf }) => {
                   }}
                 />
               </Col>
-              <Col md="6" sm="6" xs="6" className="mt-3">
+              <Col md="3" sm="6" xs="6" className="mt-3">
                 <img
                   src={DEEP}
                   name="Deep_Learning_1"
@@ -57,7 +56,7 @@ const Home = ({ setPdf }) => {
                   }}
                 />
               </Col>
-              <Col md="6" sm="6" xs="6" className="mt-3">
+              <Col md="3" sm="6" xs="6" className="mt-3">
                 <img
                   src={DEEP}
                   name="Deep_Learning_1"
@@ -68,7 +67,7 @@ const Home = ({ setPdf }) => {
                   }}
                 />
               </Col>
-              <Col md="6" sm="6" xs="6" className="mt-3">
+              <Col md="3" sm="6" xs="6" className="mt-3">
                 <img
                   src={DEEP}
                   name="Deep_Learning_1"
@@ -79,7 +78,7 @@ const Home = ({ setPdf }) => {
                   }}
                 />
               </Col>
-              <Col md="6" sm="6" xs="6" className="mt-3">
+              <Col md="3" sm="6" xs="6" className="mt-3">
                 <img
                   src={DEEP}
                   name="Deep_Learning_1"
@@ -90,7 +89,7 @@ const Home = ({ setPdf }) => {
                   }}
                 />
               </Col>
-              <Col md="6" sm="6" xs="6" className="mt-3">
+              <Col md="3" sm="6" xs="6" className="mt-3">
                 <img
                   src={DEEP}
                   name="Deep_Learning_1"
@@ -101,7 +100,7 @@ const Home = ({ setPdf }) => {
                   }}
                 />
               </Col>
-              <Col md="6" sm="6" xs="6" className="mt-3">
+              <Col md="3" sm="6" xs="6" className="mt-3">
                 <img
                   src={DEEP}
                   name="Deep_Learning_1"
@@ -112,7 +111,7 @@ const Home = ({ setPdf }) => {
                   }}
                 />
               </Col>
-              <Col md="6" sm="6" xs="6" className="mt-3">
+              <Col md="3" sm="6" xs="6" className="mt-3">
                 <img
                   src={DEEP}
                   name="Deep_Learning_1"
@@ -123,7 +122,7 @@ const Home = ({ setPdf }) => {
                   }}
                 />
               </Col>
-              <Col md="6" sm="6" xs="6" className="mt-3 mb-5">
+              <Col md="3" sm="6" xs="6" className="mt-3 mb-5">
                 <img
                   src={DEEP}
                   name="Deep_Learning_1"
@@ -134,24 +133,13 @@ const Home = ({ setPdf }) => {
                   }}
                 />
               </Col>
-              <Col md="6" sm="6" xs="6" className="mt-3 mb-5">
+              <Col md="3" sm="6" xs="6" className="mt-3 mb-5">
                 <img
                   src={DEEP}
                   name="Deep_Learning_1"
                   style={{ width: "inherit", height: "250px" }}
                   onClick={(e) => {
                     setPdf(PDF9);
-                    history.push("/pdf");
-                  }}
-                />
-              </Col>
-              <Col md="6" sm="6" xs="6" className="mt-3 mb-5">
-                <img
-                  src={DEEP}
-                  name="Deep_Learning_1"
-                  style={{ width: "inherit", height: "250px" }}
-                  onClick={(e) => {
-                    setPdf(PDF10);
                     history.push("/pdf");
                   }}
                 />
@@ -170,7 +158,7 @@ const Home = ({ setPdf }) => {
               alignItems: "center",
             }}
           >
-            <img src={AD} style={{ width: "150px", height: "150px" }} />
+            <img src={ADLOGO} style={{ width: "150px", height: "150px" }} />
           </div>
         </React.Fragment>
       )}
