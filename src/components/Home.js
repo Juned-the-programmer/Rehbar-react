@@ -1,19 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Col, Container, Row } from "reactstrap";
-import PIC from "../assets/Vol-1.jpg";
-import DEEP from "../assets/Deep_Learning.png";
 import { useHistory } from "react-router-dom";
 import ADLOGO from "../assets/ad logo.png";
-import PDF from "../assets/Vol-1 feb 2022.pdf";
-import PDF1 from "../assets/1.pdf";
-import PDF2 from "../assets/2.pdf";
-import PDF3 from "../assets/3.pdf";
-import PDF4 from "../assets/4.pdf";
-import PDF5 from "../assets/5.pdf";
-import PDF6 from "../assets/6.pdf";
-import PDF7 from "../assets/7.pdf";
-import PDF8 from "../assets/8.pdf";
-import PDF9 from "../assets/9.pdf";
+import VOL1 from "../assets/vol-1/Vol-1 feb 2022.pdf"
+import VOL1IMG from "../assets/vol-1/Vol-1.jpg"
+import VOL2 from "../assets/Vol-2/1.pdf"
+import VOL2IMG from "../assets/Vol-2/Deep_Learning.png"
 
 const Home = ({ setPdf, setBackIcon, AD, setAD }) => {
   const history = useHistory();
@@ -36,110 +28,22 @@ const Home = ({ setPdf, setBackIcon, AD, setAD }) => {
             <Row>
               <Col md="3" sm="6" xs="6" className="mt-3">
                 <img
-                  src={PIC}
+                  src={VOL1IMG}
                   name="PIC_1"
                   style={{ width: "inherit", height: "250px" }}
                   onClick={(e) => {
-                    setPdf(PDF);
+                    setPdf(VOL1);
                     history.push("/pdf");
                   }}
                 />
               </Col>
               <Col md="3" sm="6" xs="6" className="mt-3">
                 <img
-                  src={DEEP}
-                  name="Deep_Learning_1"
+                  src={VOL2IMG}
+                  name="PIC_1"
                   style={{ width: "inherit", height: "250px" }}
                   onClick={(e) => {
-                    setPdf(PDF1);
-                    history.push("/pdf");
-                  }}
-                />
-              </Col>
-              <Col md="3" sm="6" xs="6" className="mt-3">
-                <img
-                  src={DEEP}
-                  name="Deep_Learning_1"
-                  style={{ width: "inherit", height: "250px" }}
-                  onClick={(e) => {
-                    setPdf(PDF2);
-                    history.push("/pdf");
-                  }}
-                />
-              </Col>
-              <Col md="3" sm="6" xs="6" className="mt-3">
-                <img
-                  src={DEEP}
-                  name="Deep_Learning_1"
-                  style={{ width: "inherit", height: "250px" }}
-                  onClick={(e) => {
-                    setPdf(PDF3);
-                    history.push("/pdf");
-                  }}
-                />
-              </Col>
-              <Col md="3" sm="6" xs="6" className="mt-3">
-                <img
-                  src={DEEP}
-                  name="Deep_Learning_1"
-                  style={{ width: "inherit", height: "250px" }}
-                  onClick={(e) => {
-                    setPdf(PDF4);
-                    history.push("/pdf");
-                  }}
-                />
-              </Col>
-              <Col md="3" sm="6" xs="6" className="mt-3">
-                <img
-                  src={DEEP}
-                  name="Deep_Learning_1"
-                  style={{ width: "inherit", height: "250px" }}
-                  onClick={(e) => {
-                    setPdf(PDF5);
-                    history.push("/pdf");
-                  }}
-                />
-              </Col>
-              <Col md="3" sm="6" xs="6" className="mt-3">
-                <img
-                  src={DEEP}
-                  name="Deep_Learning_1"
-                  style={{ width: "inherit", height: "250px" }}
-                  onClick={(e) => {
-                    setPdf(PDF6);
-                    history.push("/pdf");
-                  }}
-                />
-              </Col>
-              <Col md="3" sm="6" xs="6" className="mt-3">
-                <img
-                  src={DEEP}
-                  name="Deep_Learning_1"
-                  style={{ width: "inherit", height: "250px" }}
-                  onClick={(e) => {
-                    setPdf(PDF7);
-                    history.push("/pdf");
-                  }}
-                />
-              </Col>
-              <Col md="3" sm="6" xs="6" className="mt-3 mb-5">
-                <img
-                  src={DEEP}
-                  name="Deep_Learning_1"
-                  style={{ width: "inherit", height: "250px" }}
-                  onClick={(e) => {
-                    setPdf(PDF8);
-                    history.push("/pdf");
-                  }}
-                />
-              </Col>
-              <Col md="3" sm="6" xs="6" className="mt-3 mb-5">
-                <img
-                  src={DEEP}
-                  name="Deep_Learning_1"
-                  style={{ width: "inherit", height: "250px" }}
-                  onClick={(e) => {
-                    setPdf(PDF9);
+                    setPdf(VOL2);
                     history.push("/pdf");
                   }}
                 />
